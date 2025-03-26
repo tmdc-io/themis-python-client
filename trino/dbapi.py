@@ -348,7 +348,7 @@ class ColumnDescription(NamedTuple):
             column["type"],  # type_code
             None,  # display_size
             arguments[0]["value"] if raw_type in LENGTH_TYPES else None,  # internal_size
-            arguments[0]["value"] if raw_type in PRECISION_TYPES else None,  # precision
+            arguments[0]["value"] if raw_type in PRECISION_TYPES and arguments else None,  # precision
             arguments[1]["value"] if raw_type in SCALE_TYPES else None,  # scale
             None  # null_ok
         )
